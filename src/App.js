@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Forms from './test';
 
 import './App.css';
 import Category from './components/Category';
 import { getCategories, getProducts} from './fetcher';
 import CategoryProduct from './components/CategoryProduct';
+import { Link} from "react-router-dom";
 
 
     const App=()=> {
@@ -64,8 +66,13 @@ import CategoryProduct from './components/CategoryProduct';
   
    return(
     <>
-    <header className='heady'>E-store</header>
-    <section>
+    <header className='header'> 
+    <Link to="/">
+        <img src="assets/a.jpg" alt="Logo" />
+      </Link>
+    
+      </header>
+          <section>
       <nav>
         {categories.errorMessage && <div>Error: {categories.errorMessage}</div>}
         {
@@ -78,8 +85,9 @@ import CategoryProduct from './components/CategoryProduct';
           Products</h1>
         {
           products.data && renderProducts()
-        }
+                }
       </main>
+      <Forms/>
     </section>
     <footer>
       <h1>Footer</h1>

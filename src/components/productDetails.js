@@ -1,23 +1,28 @@
 import React from "react";
 import { getProductById } from "../fetcher";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 
-const ProductDetail = () => {
-    const [products, setProducts] = useState({errorMessage:'', data: []});
+
+const ProductDetail = ({title}) => {
+    const [products, setProduct] = React.useState({errorMessage:'', data: []});
     const { productId } = useParams();
 
     React.useEffect(() => {
         const fetchData = async () => {
             const responseObject = await getProductById(productId);
-            setProducts(responseObject);
+            setProduct(responseObject);
         };
         fetchData();
     }, [productId]);
 
+    // useEffect(()=>{
+    //     console.log("Here is your products");
+    //     console.log(products);
+    // },[products])
 
     return(
-        <div> ProductDetail  id:{productId} title:{products.data.title}</div>
+        
+        <div> ProductDetail  id:{productId} title:{products.title}</div>
     )
 }
-export default ProductDetail
+export default ProductDetail;

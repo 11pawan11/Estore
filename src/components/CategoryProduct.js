@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const CategoryProduct = ({id, title,image, specs, capacity, features, price, stock}) => {
+const CategoryProduct = ({id, title, image, specs, capacity, features, price, stock}) => {
     let navigate = useNavigate();
     return (
      <article>

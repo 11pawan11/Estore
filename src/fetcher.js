@@ -4,7 +4,10 @@ export const fetcher = async (url) => {
   let responseObject = { errorMessage: '', data: [] };
 
   try {
+    // console.log("Top url is");
+    // console.log(BASE_URL+url);
     const response = await fetch(BASE_URL + url);
+    
     if (!response.ok) {
       throw new Error(`HTTP Error ${response.status}`);
     }
@@ -30,5 +33,6 @@ export const getProducts = id => {
 }
 
 export const getProductById = id => {
-  return fetcher('/products/' + id);
+  const url=`/products/${id}`;
+  return fetcher(url);
 }
